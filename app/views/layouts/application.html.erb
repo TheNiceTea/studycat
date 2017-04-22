@@ -9,27 +9,27 @@
   </head>
 
 <body>
-	<header class="navbar navbar-default" role="navigation">
+	<div class="navbar navbar-light" style="background-color: #F68634;"" role="navigation">
     <div class="navbar-inner">
       <div class="container">
         <div id="logo" class="navbar-brand"><%= link_to "Studycat", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to 'New University', new_uni_path %></li>
+							<li><%= link_to 'Neue Universität', new_uni_path %></li>
 							<li><%= link_to 'Account', edit_user_registration_path %></li>
-							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+							<li><%= link_to 'Abmelden', destroy_user_session_path, :method => :delete %></li>
 						</ul>
 					<% else -%>
 						<ul class="nav navbar-nav pull-right">
-							<li><%= link_to 'Sign up', new_user_registration_path %></li>
-							<li><%= link_to 'Sign in', new_user_session_path %></li>
+							<li><%= link_to 'Registrieren', new_user_registration_path %></li>
+							<li><%= link_to 'Anmelden', new_user_session_path %></li>
 						</ul>
 					<% end -%>
         </nav>
       </div>
     </div>
-  </header>
+  </div>
 
 	<div id="main_content" class="container">
 		<% flash.each do |name, msg| %>
