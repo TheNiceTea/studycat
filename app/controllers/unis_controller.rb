@@ -70,6 +70,6 @@ class UnisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uni_params
-      params.require(:uni).permit(:title)
+      params.require(:uni).permit(:title, :avatar)
     end
 end

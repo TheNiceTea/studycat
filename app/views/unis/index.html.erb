@@ -2,6 +2,7 @@
 
 <h1>Unis</h1>
     <% @unis.each do |uni| %>
+ 	<%= image_tag uni.avatar.url(:thumb) %>
       <h2><%= link_to uni.title, uni , class: "Uni" %></h2>
       <small><%= uni.subjects.count %> Fächer</small><br />
         <table>
