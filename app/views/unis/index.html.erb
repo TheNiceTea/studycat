@@ -1,17 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Unis</h1>
-    <% @unis.each do |uni| %>
- 	<%= image_tag uni.avatar.url(:thumb) %>
-      <h2><%= link_to uni.title, uni , class: "Uni" %></h2>
-      <small><%= uni.subjects.count %> Fächer</small><br />
-        <table>
-        <td><%= link_to 'Show', uni %></td>
-        <td><%= link_to 'Edit', edit_uni_path(uni) %></td>
-        <td><%= link_to 'Destroy', uni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </table>
-    <% end %>
 
+<div class="jumbotron">
+  <h1 class="display-3">Hallo, Studycat!</h1>
+  <p class="lead">Auf dieser Seite findest du alles, was du für dein erfolgreiches Studium brauchst.<br>
+  Nach einer einfachen Registrierung stehen dir Mitschriften von anderen Studycats zur Verfügung.</p>
+  <hr class="my-2">
+  <p>Worauf wartest du also noch? Logge dich ein und werde Teil der Community!</p>
+  <p class="lead">
+    <%= link_to "Jetzt registrieren!",new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  </p>
+</div>
+
+
+
+<table class="table table-striped">
+  
+  <tbody>
+  <% @unis.each do |uni| %>
+      <tr>
+      <th scope="row"><%= image_tag uni.avatar.url(:thumb) %></th>
+      <td><h2><%= link_to uni.title, uni , class: "Uni" %></h2></td>
+      <td><small><%= uni.subjects.count %> Fächer</small><br /></td>
+      <td><%= link_to 'Show', uni %> | <%= link_to 'Edit', edit_uni_path(uni) %> | <%= link_to 'Destroy', uni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+   </tbody>
+   </table>
 <br>
 
-<%= link_to 'New Uni', new_uni_path %>
+<%= link_to 'Neue Uni hinzufügen', new_uni_path %>
+

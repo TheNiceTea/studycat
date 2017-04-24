@@ -16,6 +16,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #F68634 !important;
+    border: 0px;
+}
+
 #logo {
 	font-size: 24px;
 	font-weight: 700;
