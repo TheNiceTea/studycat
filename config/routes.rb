@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  resources :subject_areas
   resources :uploads
   resources :subjects
   devise_for :users
   resources :unis
 
   resources :unis do
-  	resources :subjects do
-      resources :uploads
+    resources :subject_areas do
+  	   resources :subjects do
+          resources :uploads
+        end
     end
   end
   get '/university/:id/subjects/new' => 'subjects#new'

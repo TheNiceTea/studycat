@@ -16,13 +16,13 @@
     </tr>
   </thead>
   <tbody>
-  <% for subject in @uni.subjects %>
+  <% for subject_area in @uni.subject_areas %>
     <tr>
-      <th><%= subject.id %></th>
-      <th><%= link_to h(subject.title), uni_subject_path(@uni,subject.id) %></th>
-      <th><%= subject.uploads.count %></th>
-      <th><%= link_to "Bearbeiten", edit_uni_subject_path(@uni,subject) %></th>
-      <th><%= link_to "Löschen", uni_subject_path(@uni,subject), :confirm => 'Bist du sicher?', :method => :delete %></th>
+      <th><%= subject_area.id %></th>
+      <th><%= link_to h(subject_area.title), uni_subject_area_path(@uni,subject_area.id) %></th>
+      <th><%= subject_area.subjects.count %></th>
+      <th><%= link_to "Bearbeiten", edit_uni_subject_area_path(@uni,subject_area) %></th>
+      <th><%= link_to "Löschen", uni_subject_area_path(@uni,subject_area), :confirm => 'Bist du sicher?', :method => :delete %></th>
     </tr>
   <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 
 <%= link_to 'Zurück', unis_path %> |
-<%= link_to "Neues Fach", new_uni_subject_path(:uni_id => @uni.id) %>
+<%= link_to "Neuer Fachbereich", new_uni_subject_area_path(:uni_id => @uni.id) %>

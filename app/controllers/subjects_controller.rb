@@ -24,13 +24,13 @@ class SubjectsController < ApplicationController
   # POST /subjects
   # POST /subjects.json
   def create
-    @uni = Uni.find(params[:subject][:uni_id])
-    @subject = @uni.subjects.new(subject_params)
+    @subject_area = SubjectArea.find(params[:subject][:subject_area_id])
+    @subject = @subject_area.subjects.new(subject_params)
     #@subject = Subject.new(subject_params)
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+        format.html { redirect_to uni_subject_area_subject_path(params[:subject][:uni_id],params[:subject][:subject_area_id],@subject.id), notice: 'Subject was successfully created.' }
         format.json { render :show, status: :created, location: @subject }
       else
         format.html { render :new }

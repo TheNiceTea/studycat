@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2><%= @subject_area.title %></h2>
+</p>
+
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Fach</th>
+      <th>Beiträge</th>
+      <th>Bearbeiten</th>
+      <th>Löschen</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for subject in @subject_area.subjects %>
+    <tr>
+      <th><%= subject.id %></th>
+      <th><%= link_to h(subject.title), uni_subject_area_subject_path("#{params[:uni_id]}",@subject_area.id,subject.id) %></th>
+      <th><%= subject.uploads.count %></th>
+      <th><%= link_to "Bearbeiten", edit_uni_subject_area_path(@subject_area,subject) %></th>
+      <th><%= link_to "Löschen", uni_subject_area_subject_path("#{params[:uni_id]}",@subject_area,subject), :confirm => 'Bist du sicher?', :method => :delete %></th>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+
+
+<%= link_to 'Zurück', edit_uni_subject_area_path(@subject_area) %> |
+<%= link_to "Neues Fach", new_uni_subject_area_subject_path("#{params[:uni_id]}",:subject_area_id => @subject_area.id) %>

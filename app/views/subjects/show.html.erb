@@ -1,8 +1,31 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <h1><%= @subject.title %></h1>
+  <h2><%= @subject.title %></h2>
 </p>
 
-<%= link_to 'Edit', edit_uni_subject_path(@subject) %> |
-<%= link_to 'Back', uni_path %>
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Upload-Name</th>
+      <th>Datei</th>
+      <th>Bearbeiten</th>
+      <th>Löschen</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for upload in @subject.uploads %>
+    <tr>
+      <th><%= upload.id %></th>
+      <th><%= link_to h(upload.title), uni_subject_area_subject_upload_path("#{params[:uni_id]}","#{params[:subject_area_id]}",@subject.id,upload.id) %></th>
+      <th><%= upload.note %></th>
+      <th><%= link_to "Bearbeiten", edit_uni_subject_area_path(@subject,upload) %></th>
+      <th><%= link_to "Löschen", uni_subject_area_subject_path("#{params[:uni_id]}",@subject,upload), :confirm => 'Bist du sicher?', :method => :delete %></th>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+
+
+<%= link_to 'Zurück', edit_uni_subject_area_subject_upload_path("#{params[:uni_id]}","#{params[:subject_area_id]}",@subject.id) %> |
+<%= link_to "Neuer Upload", new_uni_subject_area_subject_upload_path("#{params[:uni_id]}","#{params[:subject_area_id]}",@subject.id) %>

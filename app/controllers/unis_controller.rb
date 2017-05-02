@@ -29,7 +29,7 @@ class UnisController < ApplicationController
 
     respond_to do |format|
       if @uni.save
-        format.html { redirect_to @uni, notice: 'Uni was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Uni was successfully created.' }
         format.json { render :show, status: :created, location: @uni }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class UnisController < ApplicationController
   def update
     respond_to do |format|
       if @uni.update(uni_params)
-        format.html { redirect_to @uni, notice: 'Uni was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Uni was successfully updated.' }
         format.json { render :show, status: :ok, location: @uni }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class UnisController < ApplicationController
   def destroy
     @uni.destroy
     respond_to do |format|
-      format.html { redirect_to unis_url, notice: 'Uni was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Uni was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
