@@ -9,4 +9,4 @@
 
 
 <%= link_to 'Bearbeiten', edit_upload_path(@upload) %> |
-<%= link_to 'Zurück', uploads_path %>
+<%= link_to 'Zurück', uni_subject_area_subject_path("#{params[:uni_id]}","#{params[:subject_area_id]}","#{params[:subject_id]}") %>

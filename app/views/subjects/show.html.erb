@@ -27,5 +27,5 @@
   </table>
 
 
-<%= link_to 'Zurück', edit_uni_subject_area_subject_upload_path("#{params[:uni_id]}","#{params[:subject_area_id]}",@subject.id) %> |
+<%= link_to 'Zurück', uni_subject_area_path("#{params[:uni_id]}","#{params[:subject_area_id]}") %> |
 <%= link_to "Neuer Upload", new_uni_subject_area_subject_upload_path("#{params[:uni_id]}","#{params[:subject_area_id]}",@subject.id) %>
