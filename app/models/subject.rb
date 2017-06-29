@@ -1,4 +1,4 @@
 class Subject < ApplicationRecord
-	has_many :uploads
+	has_many :resumes
 	belongs_to :subject_area
 end

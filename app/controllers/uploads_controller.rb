@@ -29,7 +29,9 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        format.html { redirect_to root_path, notice: 'Upload was successfully created.' }
+        #http://localhost:3000/unis/4/subject_areas/6/subjects/16
+
+        format.html { redirect_to uni_subject_area_subject_path(params[:upload][:uni_id],params[:upload][:subject_area_id],params[:upload][:subject_id]), notice: 'Upload was successfully created.' }
         format.json { render :show, status: :created, location: @upload }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class UploadsController < ApplicationController
   def update
     respond_to do |format|
       if @upload.update(upload_params)
-        format.html { redirect_to root_path, notice: 'Upload was successfully updated.' }
+        format.html { redirect_to uni_subject_area_subject_path(params[:upload][:uni_id],params[:upload][:subject_area_id],params[:upload][:subject_id]), notice: 'Upload was successfully updated.' }
         format.json { render :show, status: :ok, location: @upload }
       else
         format.html { render :edit }
@@ -57,7 +59,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Upload was successfully destroyed.' }
+      format.html { redirect_to uni_subject_area_subject_path(params[:upload][:uni_id],params[:upload][:subject_area_id],params[:upload][:subject_id]), notice: 'Upload was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

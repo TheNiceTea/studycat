@@ -11,8 +11,6 @@
       <th>#</th>
       <th>Fach</th>
       <th>Beiträge</th>
-      <th>Bearbeiten</th>
-      <th>Löschen</th>
     </tr>
   </thead>
   <tbody>
@@ -21,8 +19,6 @@
       <th><%= subject_area.id %></th>
       <th><%= link_to h(subject_area.title), uni_subject_area_path(@uni,subject_area.id) %></th>
       <th><%= subject_area.subjects.count %></th>
-      <th><%= link_to "Bearbeiten", edit_uni_subject_area_path(@uni,subject_area) %></th>
-      <th><%= link_to "Löschen", uni_subject_area_path(@uni,subject_area), :confirm => 'Bist du sicher?', :method => :delete %></th>
     </tr>
   <% end %>
   </tbody>

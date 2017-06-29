@@ -1,10 +1,10 @@
-<%= form_for(upload) do |f| %>
-  <% if upload.errors.any? %>
+<%= form_for(resume) do |f| %>
+  <% if resume.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
+      <h2><%= pluralize(resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
 
       <ul>
-      <% upload.errors.full_messages.each do |message| %>
+      <% resume.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
